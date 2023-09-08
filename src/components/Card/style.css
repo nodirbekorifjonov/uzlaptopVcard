@@ -1,0 +1,27 @@
+.link svg path {
+  stroke: #fdfeff;
+}
+
+.link svg {
+  fill: #ffffff;
+}
+
+.link:hover div {
+  transform: translateY(-4px);
+}
+
+.css-selector {
+  animation: AnimationName 30s ease infinite;
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
