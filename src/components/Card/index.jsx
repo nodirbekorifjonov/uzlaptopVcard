@@ -13,10 +13,12 @@ import { FaInstagram, FaTelegramPlane } from "react-icons/fa";
 // images
 import uzlaptopLogo from "../../assets/static/uzlaptop.png";
 
-const Card = () => {
+const Card = (props) => {
   const [enabled, setEnabled] = useState(
     localStorage.getItem("darkModeEnabled") === "true"
   );
+
+  const data = props.data;
 
   const { changeMode } = useTheme();
 
@@ -48,7 +50,7 @@ const Card = () => {
             checked={enabled}
             onChange={toggleDarkMode}
             className={`${enabled ? "bg-[#333751]" : "bg-[#ebebeb]"}
-          p-[2px] relative inline-flex h-[40px] w-[74px] shrink-0 cursor-pointer rounded-full border-[1px] border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75 shadow-lg`}
+          p-[2px] relative inline-flex h-[40px] w-[74px] shrink-0 cursor-pointer rounded-full border-[1px] border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75 shadow-lg dark:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)]`}
           >
             <span className="sr-only">Use setting</span>
             <span
@@ -63,20 +65,19 @@ const Card = () => {
         {/* MAIN */}
         <main className="main flex flex-col items-center">
           <img
-            src={uzlaptopLogo}
+            src={data.avatar}
             alt=""
             className="rounded-full object-cover w-[120px] h-[120px] shadow-[5px_5px_15px_0px_rgba(0,0,0,0.2)] self-center mb-7"
           />
           <div className="info mb-5 w-[60%] max-[504px]:w-[90%]">
             <h2 className="name text-3xl font-semibold mb-2 text-[#333751] text-center dark:text-[#fdfeff]">
-              Abdug'ani Qodirov
+              {data.name}
             </h2>
             <h3 className="font-semibold text-base uppercase text-[#acaeb8] text-center tracking-wide mb-1">
-              Menedjer
+              {data.job}
             </h3>
             <p className="text-[15px] leading-5 font-semibold italic text-[#333751] text-center dark:text-[#fdfeff]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-              mollitia.
+              {data.info}
             </p>
           </div>
           <a
@@ -92,7 +93,7 @@ const Card = () => {
           <div className="links w-full flex justify-evenly flex-wrap gap-x-8 gap-y-7">
             {/* MOBILE */}
             <a
-              href="tel:+998971283333"
+              href={`tel:${data.workPhone}`}
               className="link mobile flex flex-col items-center w-[110px]"
             >
               <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#1dbf38] to-[#4cfc69] mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)]">
@@ -101,12 +102,14 @@ const Card = () => {
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Mobil raqam
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic">+998971283333</p>
+              <p className="text-[#acaeb8] leading-4 italic">
+                {data.workPhone}
+              </p>
             </a>
 
             {/* ADDRESS */}
             <a
-              href="https://yandex.com/maps/-/CDQc4T2~"
+              href={data.addressLink}
               target="_blank"
               className="link address flex flex-col items-center w-[110px]"
             >
@@ -116,14 +119,14 @@ const Card = () => {
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Manzil
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic">
-                "Malika" savdo majmuasi B43a
+              <p className="text-[#acaeb8] leading-4 italic text-center">
+                {data.address}
               </p>
             </a>
 
             {/* WEBSITE */}
             <a
-              href="https://uzlaptop.net"
+              href={`https://${data.website}`}
               target="_blank"
               className="link website flex flex-col items-center w-[110px]"
             >
@@ -133,12 +136,12 @@ const Card = () => {
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Vebsayt
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic">uzlaptop.net</p>
+              <p className="text-[#acaeb8] leading-4 italic">{data.website}</p>
             </a>
 
             {/* INSTAGRAM */}
             <a
-              href="https://instagram.com/uz_laptop"
+              href={`https://instagram.com/${data.instagram}`}
               target="_blank"
               className="link website flex flex-col items-center w-[110px]"
             >
@@ -148,12 +151,14 @@ const Card = () => {
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Instagram
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic">uz_laptop</p>
+              <p className="text-[#acaeb8] leading-4 italic">
+                {data.instagram}
+              </p>
             </a>
 
             {/* TELEGRAM */}
             <a
-              href="https://t.me/uzlaptop"
+              href={`https://t.me/${data.telegram}`}
               target="_blank"
               className="link website flex flex-col items-center w-[110px]"
             >
@@ -163,7 +168,7 @@ const Card = () => {
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Telegram
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic">uzlaptop</p>
+              <p className="text-[#acaeb8] leading-4 italic">{data.telegram}</p>
             </a>
           </div>
         </main>
