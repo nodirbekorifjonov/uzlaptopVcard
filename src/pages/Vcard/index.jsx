@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const Vcard = () => {
   const [result, setResult] = useState([]);
   const { id } = useParams();
-
+  
   useEffect(() => {
     const foundCard = vcards.find((card) => card.id === Number(id));
     setResult(foundCard);
