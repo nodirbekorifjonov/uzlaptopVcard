@@ -20,7 +20,7 @@ const Card = (props) => {
 
   const data = props.data;
 
-  const imagePath = "assets/";
+  // const imagePath = "assets/";
 
   const { changeMode } = useTheme();
 
@@ -37,10 +37,10 @@ const Card = (props) => {
   };
 
   return (
-    <div className="max-w-[675px] h-full my-[40px] mx-auto">
-      <div className="card w-full shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)] py-[30px] px-[30px] rounded-2xl bg-[#fdfeffe7] dark:bg-[#32364fc2]">
+    <div className="w-[675px] absolute right-[50%] top-[50%] translate-x-[50%] translate-y-[-50%] max-[700px]:w-full ">
+      <div className="card w-full shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)] py-[20px] px-[30px] rounded-2xl bg-[#fdfeffe7] dark:bg-[#32364fc2]">
         {/* HEADER */}
-        <header className="header flex justify-between items-center mb-[64px]">
+        <header className="header flex justify-between items-center mb-[40px] max-[700px]:mb-[20px]">
           <a
             href="https://t.me/vcarduz"
             target="_blank"
@@ -67,9 +67,9 @@ const Card = (props) => {
         {/* MAIN */}
         <main className="main flex flex-col items-center">
           <img
-            src="../assets/uzlaptop.png"
+            src={data.avatar}
             alt=""
-            className="rounded-full object-cover w-[120px] h-[120px] shadow-[5px_5px_15px_0px_rgba(0,0,0,0.2)] self-center mb-7"
+            className="rounded-full object-cover w-[120px] h-[120px] shadow-[5px_5px_15px_0px_rgba(0,0,0,0.2)] self-center mb-7 max-[700px]:mb-[15px] max-[700px]:w-[85px] max-[700px]:h-[85px]"
           />
           <div className="info mb-5 w-[60%] max-[504px]:w-[90%]">
             <h2 className="name text-3xl font-semibold mb-2 text-[#333751] text-center dark:text-[#fdfeff]">
@@ -84,27 +84,27 @@ const Card = (props) => {
           </div>
           <a
             href="tel:+998882710323"
-            className="call flex justify-center items-center gap-x-2 py-[12px] px-[30px] mb-9 rounded-full text-white font-semibold self-center shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)] bg-gradient-to-r from-pink-500 to-purple-500 transition-all ease-linear duration-300 hover:ease-in hover:from-purple-500 hover:to-pink-500"
+            className="call flex justify-center items-center gap-x-2 py-[12px] px-[30px] mb-9 rounded-full text-white font-semibold self-center shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)] bg-gradient-to-r from-pink-500 to-purple-500 transition-all ease-linear duration-300 hover:ease-in hover:from-purple-500 hover:to-pink-500 max-[700px]:mb-[20px]"
           >
             <BsTelephoneFill />
             <span>Bog'lanish</span>
           </a>
 
-          <span className="block w-[90%] h-[1px] bg-[#e9e9e9] rounded-full mb-9 max-[504px]:w-[100%]" />
+          <span className="block w-[90%] h-[1px] bg-[#e9e9e9] rounded-full mb-9 max-[504px]:w-[100%] max-[700px]:mb-[20px]" />
 
-          <div className="links w-full flex justify-evenly flex-wrap gap-x-8 gap-y-7">
+          <div className="links w-full flex justify-evenly flex-wrap gap-x-4 gap-y-5 max-[700px]:gap-2">
             {/* MOBILE */}
             <a
               href={`tel:${data.workPhone}`}
               className="link mobile flex flex-col items-center w-[110px]"
             >
-              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#1dbf38] to-[#4cfc69] mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)]">
-                <BsTelephoneFill className="mx-auto text-[40px]" />
+              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#1dbf38] to-[#4cfc69] mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)] max-[700px]:w-[60px] max-[700px]:h-[60px]">
+                <BsTelephoneFill className="mx-auto text-[40px] max-[700px]:text-[25px]" />
               </div>
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Mobil raqam
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic">
+              <p className="text-[#acaeb8] leading-4 text-sm italic">
                 {data.workPhone}
               </p>
             </a>
@@ -115,13 +115,13 @@ const Card = (props) => {
               target="_blank"
               className="link address flex flex-col items-center w-[110px]"
             >
-              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#ff3334] to-[#df0202] mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)]">
-                <GrLocation className="mx-auto text-[40px]" />
+              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#ff3334] to-[#df0202] mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)] max-[700px]:w-[60px] max-[700px]:h-[60px]">
+                <GrLocation className="mx-auto text-[40px] max-[700px]:text-[25px]" />
               </div>
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Manzil
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic text-center">
+              <p className="text-[#acaeb8] leading-4 text-sm italic text-center">
                 {data.address}
               </p>
             </a>
@@ -132,13 +132,15 @@ const Card = (props) => {
               target="_blank"
               className="link website flex flex-col items-center w-[110px]"
             >
-              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#27d4fb] to-[#276def] mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)]">
-                <TfiWorld className="mx-auto text-[40px]" />
+              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#27d4fb] to-[#276def] mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)] max-[700px]:w-[60px] max-[700px]:h-[60px]">
+                <TfiWorld className="mx-auto text-[40px] max-[700px]:text-[25px]" />
               </div>
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Vebsayt
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic">{data.website}</p>
+              <p className="text-[#acaeb8] leading-4 text-sm italic">
+                {data.website}
+              </p>
             </a>
 
             {/* INSTAGRAM */}
@@ -147,13 +149,13 @@ const Card = (props) => {
               target="_blank"
               className="link website flex flex-col items-center w-[110px]"
             >
-              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-pink-500 to-purple-500 mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)]">
-                <FaInstagram className="mx-auto text-[40px]" />
+              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-pink-500 to-purple-500 mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)] max-[700px]:w-[60px] max-[700px]:h-[60px]">
+                <FaInstagram className="mx-auto text-[40px] max-[700px]:text-[25px]" />
               </div>
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Instagram
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic">
+              <p className="text-[#acaeb8] leading-4 text-sm italic">
                 {data.instagram}
               </p>
             </a>
@@ -164,13 +166,15 @@ const Card = (props) => {
               target="_blank"
               className="link website flex flex-col items-center w-[110px]"
             >
-              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#40bcfe] to-[#0c8ccc] mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)]">
-                <FaTelegramPlane className="mx-auto text-[40px]" />
+              <div className="flex justify-between items-center w-[100px] h-[100px] rounded-full bg-gradient-to-r from-[#40bcfe] to-[#0c8ccc] mb-[6px] transition-all ease-linear duration-300 hover:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)] max-[700px]:w-[60px] max-[700px]:h-[60px]">
+                <FaTelegramPlane className="mx-auto text-[40px] max-[700px]:text-[25px]" />
               </div>
               <h3 className="text-[15px] leading-5 font-bold mb-1 text-[#333751] dark:text-[#fdfeff] ">
                 Telegram
               </h3>
-              <p className="text-[#acaeb8] leading-4 italic">{data.telegram}</p>
+              <p className="text-[#acaeb8] leading-4 text-sm italic">
+                {data.telegram}
+              </p>
             </a>
           </div>
         </main>
