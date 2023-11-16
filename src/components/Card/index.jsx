@@ -11,7 +11,7 @@ import { TfiWorld } from "react-icons/tfi";
 import { FaInstagram, FaTelegramPlane } from "react-icons/fa";
 
 // images
-import uzlaptopLogo from "../../assets/static/uzlaptop.png";
+// import uzlaptopLogo from "../../assets/static/uzlaptop.png";
 
 const Card = (props) => {
   const [enabled, setEnabled] = useState(
@@ -19,6 +19,8 @@ const Card = (props) => {
   );
 
   const data = props.data;
+
+  const imagePath = "assets/";
 
   const { changeMode } = useTheme();
 
@@ -65,7 +67,7 @@ const Card = (props) => {
         {/* MAIN */}
         <main className="main flex flex-col items-center">
           <img
-            src={data.avatar}
+            src="../assets/uzlaptop.png"
             alt=""
             className="rounded-full object-cover w-[120px] h-[120px] shadow-[5px_5px_15px_0px_rgba(0,0,0,0.2)] self-center mb-7"
           />
