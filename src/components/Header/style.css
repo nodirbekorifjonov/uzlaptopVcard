@@ -1,0 +1,13 @@
+.header-mobile {
+  display: none;
+}
+
+.overlay {
+  backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 595px) {
+  .header-mobile {
+    display: block;
+  }
+}

@@ -1,41 +1,26 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
+// Style
+import "./style.css";
+
+// Components
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 const RootLayout = () => {
   return (
     <>
+      {/* Header */}
+      <Header />
+
+      {/* Main */}
       <main>
         <Outlet />
-        <ul className="background bg-[#4e54c8] dark:bg-[#32364f]">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
       </main>
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 };
