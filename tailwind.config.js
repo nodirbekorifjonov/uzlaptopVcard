@@ -305,8 +305,8 @@ export default {
       DEFAULT: "1",
     },
     fontFamily: {
+      poppins: ["Poppins"],
       poppinsMedium: ["Poppins Medium"],
-      poppinsBold: ["Poppins Bold"],
       sans: [
         "ui-sans-serif",
         "system-ui",

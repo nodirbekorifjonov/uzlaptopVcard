@@ -54,12 +54,12 @@ const index = () => {
         <nav className="sitenav max-[595px]:hidden">
           <ul className="sitenav__list flex items-center gap-5 text-[17px] text-[#333751] dark:text-white">
             <li className="sitenav__item">
-              <a href="/" className="sitenav__link hover:text-pink-600">
+              <a href="/" className="sitenav__link hover:text-[#ff0060]">
                 Tariflar
               </a>
             </li>
             <li className="sitenav__item">
-              <a href="/" className="sitenav__link hover:text-pink-600">
+              <a href="/" className="sitenav__link hover:text-[#ff0060]">
                 Bog'lanish
               </a>
             </li>
@@ -67,7 +67,7 @@ const index = () => {
               <a
                 href="https://t.me/virtualcarduz_bot"
                 target="_blank"
-                className="sitenav__link flex items-center gap-[4px] text-[16px] bg-pink-600 text-white py-2 px-3 rounded-md border-[2px] border-transparent transition-all hover:bg-pink-700"
+                className="sitenav__link flex items-center gap-[4px] text-[16px] bg-[#ff0060] text-white py-2 px-3 rounded-md border-[2px] border-transparent transition-all hover:bg-[#dd0055]"
               >
                 <span className="font-medium">Yaratish</span>
                 <TiPlus />
@@ -75,7 +75,7 @@ const index = () => {
             </li>
             <li
               onClick={handleDropdown}
-              className="sitenav__item relative flex justify-center items-center p-[6px] pb-[8px] bg-transparent border-[2px] border-pink-600 rounded-full leading-[1] font-bold text-pink-600 cursor-pointer"
+              className="sitenav__item relative flex justify-center items-center p-[6px] pb-[8px] bg-transparent border-[2px] border-[#ff0060] rounded-full leading-[1] font-bold text-[#ff0060] cursor-pointer"
             >
               {changeLang}
               {dropdown && (
@@ -111,7 +111,7 @@ const index = () => {
         <div className="header-mobile">
           <button
             onClick={handleShowNav}
-            className="header-hamburger bg-pink-600 py-[10px] px-[15px] text-white rounded transition-all hover:bg-pink-700"
+            className="header-hamburger bg-[#ff0060] py-[10px] px-[15px] text-white rounded transition-all hover:bg-[#dd0055]"
           >
             {!showNav ? <GiHamburgerMenu /> : <CgClose />}
           </button>
@@ -126,7 +126,7 @@ const index = () => {
                 <li className="sitenav__item">
                   <a
                     href="/"
-                    className="sitenav__link hover:text-pink-600 py-4"
+                    className="sitenav__link hover:text-[#ff0060] py-4"
                   >
                     Tariflar
                   </a>
@@ -134,7 +134,7 @@ const index = () => {
                 <li className="sitenav__item">
                   <a
                     href="/"
-                    className="sitenav__link hover:text-pink-600 py-4"
+                    className="sitenav__link hover:text-[#ff0060] py-4"
                   >
                     Bog'lanish
                   </a>
@@ -143,7 +143,7 @@ const index = () => {
                   <a
                     href="https://t.me/virtualcarduz_bot"
                     target="_blank"
-                    className="sitenav__link flex items-center gap-[4px] text-[16px] bg-pink-600 text-white py-2 px-3 rounded-md border-[2px] border-transparent transition-all hover:bg-pink-700"
+                    className="sitenav__link flex items-center gap-[4px] text-[16px] bg-[#ff0060] text-white py-2 px-3 rounded-md border-[2px] border-transparent transition-all hover:bg-[#dd0055]"
                   >
                     <span className="font-medium">Yaratish</span>
                     <TiPlus />
@@ -151,7 +151,7 @@ const index = () => {
                 </li>
                 <li
                   onClick={handleDropdown}
-                  className="sitenav__item relative flex justify-center items-center p-[6px] pb-[10px] bg-transparent border-[2px] border-pink-600 rounded-full leading-[1] font-bold text-pink-600 cursor-pointer"
+                  className="sitenav__item relative flex justify-center items-center p-[6px] pb-[10px] bg-transparent border-[2px] border-[#ff0060] rounded-full leading-[1] font-bold text-[#ff0060] cursor-pointer"
                 >
                   {changeLang}
                   {dropdown && (
