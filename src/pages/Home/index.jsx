@@ -9,6 +9,9 @@ import { BsQrCodeScan } from "react-icons/bs";
 import { RiShareLine } from "react-icons/ri";
 import { GoTrophy } from "react-icons/go";
 
+// Components
+import PricingCard from "../../components/PricingCard";
+
 const Home = () => {
   return (
     <>
@@ -25,7 +28,8 @@ const Home = () => {
               telefonlar, elektron pochta va boshqalar) almashishning oson usuli
             </p>
             <a
-              href=""
+              href="https://t.me/virtualcarduz_bot"
+              target="_blank"
               className="hero__btn py-[15px] px-[30px] text-[14px] bg-[#ff0060] font-semibold text-white rounded-[30px] transition-all hover:bg-[#dd0055]"
             >
               VIZITKA YARATISH
@@ -91,6 +95,21 @@ const Home = () => {
               </div>
             </li>
           </ul>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section
+        id="pricining"
+        className="pricing text-[#444] font-poppins text-[16px] py-[40px]"
+      >
+        <div className="site-container">
+          {/* Work Title */}
+          <h2 className="work__title text-[25px] mb-[25px] text-center">
+            Tariflar
+          </h2>
+          {/* Pricing Cards */}
+          <PricingCard />
         </div>
       </section>
     </>

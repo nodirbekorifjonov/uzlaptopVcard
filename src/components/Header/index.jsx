@@ -18,8 +18,14 @@ import { FaInstagram } from "react-icons/fa6";
 import { RiTwitterXLine } from "react-icons/ri";
 
 import { useState } from "react";
+import { useLocation, Link as RouterLink } from "react-router-dom";
+
+import { Link } from "react-scroll";
 
 const index = () => {
+  // Page Location
+  const location = useLocation();
+
   const [changeLang, setChangeLang] = useState("uz");
   const [dropdown, setDropdown] = useState(false);
   const [showNav, setShowNav] = useState(false);
@@ -32,10 +38,13 @@ const index = () => {
     !showNav ? setShowNav(true) : setShowNav(false);
   };
 
+  // Check if the current page is the home page
+  const isHomePage = location.pathname === "/";
+
   return (
     <header
       // style={{ paddingTop: "1rem", paddingBottom: "1rem" }}
-      className={`header sticky top-0 z-[100] py-[5px] mb-[10px] bg-white dark:bg-[#32364f] ${
+      className={`header fixed w-full top-0 z-[100] py-[5px] mb-[10px] bg-white dark:bg-[#32364f] ${
         showNav && "shadow-[0px_12px_11px_-14px_rgba(34,60,80,0.22)]"
       } dark:shadow-[5px_5px_15px_0px_rgba(0,0,0,0.1)]`}
     >
@@ -53,18 +62,34 @@ const index = () => {
         {/* Navigation Bar */}
         <nav className="sitenav max-[595px]:hidden">
           <ul className="sitenav__list flex items-center gap-5 text-[17px] text-[#333751] dark:text-white">
+            {isHomePage && (
+              <li className="sitenav__item">
+                <Link
+                  onClick={handleShowNav}
+                  className="sitenav__link cursor-pointer hover:text-[#ff0060]"
+                  to="pricing"
+                  spy={true}
+                  smooth={true}
+                  offset={-70} // You may need to adjust this value based on your header height
+                  duration={500}
+                >
+                  Tariflar
+                </Link>
+              </li>
+            )}
             <li className="sitenav__item">
-              <a href="/" className="sitenav__link hover:text-[#ff0060]">
-                Tariflar
-              </a>
-            </li>
-            <li className="sitenav__item">
-              <a href="/" className="sitenav__link hover:text-[#ff0060]">
+              <a
+                onClick={handleShowNav}
+                href="https://t.me/virtualcarduz_bot"
+                target="_blank"
+                className="sitenav__link hover:text-[#ff0060]"
+              >
                 Bog'lanish
               </a>
             </li>
             <li className="sitenav__item">
               <a
+                onClick={handleShowNav}
                 href="https://t.me/virtualcarduz_bot"
                 target="_blank"
                 className="sitenav__link flex items-center gap-[4px] text-[16px] bg-[#ff0060] text-white py-2 px-3 rounded-md border-[2px] border-transparent transition-all hover:bg-[#dd0055]"
@@ -118,22 +143,41 @@ const index = () => {
 
           {/* Mobile Navigation */}
           {showNav && (
-            <nav
-              onClick={() => setShowNav(false)}
-              className="mobile-sitenav flex flex-col items-center absolute top-[88px] bottom-0 w-[80%] h-[85vh] right-0 py-5 px-3 bg-white shadow-[-4px_20px_30px_0px_rgba(34,60,80,0.14)]"
-            >
+            <nav className="mobile-sitenav flex flex-col items-center absolute top-[80px] bottom-0 w-[80%] h-screen right-0 py-5 px-3 bg-white shadow-[-4px_20px_30px_0px_rgba(34,60,80,0.14)]">
               <ul className="mobile-sitenav__list flex flex-col justify-between text-center gap-4">
+                {isHomePage && (
+                  <li className="sitenav__item">
+                    <Link
+                      onClick={handleShowNav}
+                      className="sitenav__link cursor-pointer hover:text-[#ff0060]"
+                      to="pricing"
+                      spy={true}
+                      smooth={true}
+                      offset={-70} // You may need to adjust this value based on your header height
+                      duration={500}
+                    >
+                      Tariflar
+                    </Link>
+                  </li>
+                )}
+
+                {!isHomePage && (
+                  <li className="sitenav__item">
+                    <RouterLink
+                      onClick={handleShowNav}
+                      className="sitenav__link cursor-pointer hover:text-[#ff0060]"
+                      to="/"
+                    >
+                      Bosh sahifa
+                    </RouterLink>
+                  </li>
+                )}
+
                 <li className="sitenav__item">
                   <a
-                    href="/"
-                    className="sitenav__link hover:text-[#ff0060] py-4"
-                  >
-                    Tariflar
-                  </a>
-                </li>
-                <li className="sitenav__item">
-                  <a
-                    href="/"
+                    onClick={handleShowNav}
+                    href="https://t.me/virtualcarduz_bot"
+                    target="_blank"
                     className="sitenav__link hover:text-[#ff0060] py-4"
                   >
                     Bog'lanish
@@ -157,21 +201,30 @@ const index = () => {
                   {dropdown && (
                     <ul className="dropdown__list absolute align-middle left-[10px] top-[50px] py-2 w-[80px] flex flex-col rounded shadow-[3px_3px_14px_0px_rgba(34,60,80,0.2)]">
                       <li
-                        onClick={() => setChangeLang("uz")}
+                        onClick={() => {
+                          setChangeLang("uz");
+                          setShowNav(false);
+                        }}
                         className="dropdown__item flex py-[5px] px-3 hover:bg-neutral-200"
                       >
                         <span className="mr-auto">uz</span>{" "}
                         <img src={UZ} alt="" width={25} />
                       </li>
                       <li
-                        onClick={() => setChangeLang("ru")}
+                        onClick={() => {
+                          setChangeLang("ru");
+                          setShowNav(false);
+                        }}
                         className="dropdown__item flex py-[5px] px-3 hover:bg-neutral-200"
                       >
                         <span className="mr-auto">ru</span>{" "}
                         <img src={RU} alt="" width={25} />
                       </li>
                       <li
-                        onClick={() => setChangeLang("en")}
+                        onClick={() => {
+                          setChangeLang("en");
+                          setShowNav(false);
+                        }}
                         className="dropdown__item flex py-[5px] px-3 hover:bg-neutral-200"
                       >
                         <span className="mr-auto">en</span>{" "}
@@ -182,7 +235,7 @@ const index = () => {
                 </li>
               </ul>
 
-              <ul className="mobile-sitenav__links flex absolute bottom-[50px] gap-2">
+              <ul className="mobile-sitenav__links flex absolute bottom-[120px] gap-2">
                 <li className="">
                   <a
                     href="https://t.me/virtualcarduz"

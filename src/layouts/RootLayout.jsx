@@ -16,6 +16,7 @@ const RootLayout = () => {
 
       {/* Main */}
       <main>
+        <div className="block h-[75px]"></div>
         <Outlet />
       </main>
 
